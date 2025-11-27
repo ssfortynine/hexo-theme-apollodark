@@ -1,0 +1,21 @@
+menu:
+    Blog: /
+    Archive: /archives/
+    Weibo: /
+    GitHub: https://github.com/ssfortynine
+    Rss: /atom.xml
+
+favicon: /cat.png
+logo: /cat.png
+
+# Comment
+# e.g disqus: seansun
+disqus: seansun
+duoshuo:
+
+# Analytics
+# google-analytics:
+# ga: UA-xxxxxxxx-x
+
+# Copyright Infomation
+startyear: 2015

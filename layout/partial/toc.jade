@@ -1,0 +1,12 @@
+- // Generate TOC
+- var tocHTML = (typeof toc === 'function') ? toc(page.content) : '';
+if tocHTML
+  aside#toc.post-toc-sidebar
+    != tocHTML
+
+  a.toc-toggle(href="#", onclick="toggleTOC();return false;")
+    - if (typeof __ === 'function')
+      != __('')
+    - else
+      | TOC
+

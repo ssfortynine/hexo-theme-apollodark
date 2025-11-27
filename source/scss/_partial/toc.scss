@@ -1,0 +1,78 @@
+#toc {
+  position: fixed;
+  right: 2rem;
+  top: 8rem; 
+  z-index: 99;
+  
+  display: inline-block;
+  width: 18rem; 
+  max-height: 85vh;
+  overflow-y: auto; 
+  
+  text-align: right;
+  font-size: 13px;
+  line-height: 1.5;
+  
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+
+  ol {
+    list-style: none !important; /* 强制去掉数字 */
+    margin: 0;
+    padding: 0; /* 去掉默认的左内边距 */
+  }
+
+  a.toc-link {
+    display: block; 
+    color: #999;    
+    text-decoration: none;
+    transition: all 0.2s;
+    padding: 2px 0; 
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+  a.toc-link:hover {
+    color: #42b983; /* Apollo 蓝 */
+  }
+
+  .toc-level-1 { display: none; }
+  
+  .toc-level-2 {
+    margin-top: 8px; 
+    
+    > a.toc-link {
+      color: #555; 
+      font-weight: bold;
+    }
+
+    > a.toc-link:before {
+      content: "# ";
+      color: #42b983;
+      font-weight: normal;
+      margin-right: 4px;
+    }
+  }
+
+  .toc-level-3 {
+    padding-right: 10px; 
+    font-size: 12px;
+  }
+
+  .toc-level-4, .toc-level-5, .toc-level-6 { display: none; }
+
+  .toc-number { display: none; }
+
+  .toc-item.active > a.toc-link {
+    color: #2da0f9;
+    border-right: 3px solid #2da0f9; 
+    padding-right: 8px; 
+    margin-right: -2rem; 
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #toc { display: none; }
+}
