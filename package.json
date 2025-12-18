@@ -1,5 +1,5 @@
 {
-  "name": "hexo-theme-apollo",
+  "name": "hexo-theme-apollodark",
   "version": "1.0.0",
   "description": "A hexo theme inspired by vuejs.org",
   "main": "index.js",
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pinggod/hexo-theme-apollo"
+    "url": "https://github.com/ssfortynine/hexo-theme-apollodark"
   },
   "keywords": [
     "hexo",
     "theme",
-    "apollo"
+    "apollodark"
   ],
-  "author": "Sean Sun",
+  "author": "ssfortynine Sean Sun",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pinggod/hexo-theme-apollo/issues"
+    "url": "https://github.com/ssfortynine/hexo-theme-apollodark/issues"
   },
-  "homepage": "https://github.com/pinggod/hexo-theme-apollo#readme",
+  "homepage": "https://github.com/ssfortynine/hexo-theme-apollodark#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",

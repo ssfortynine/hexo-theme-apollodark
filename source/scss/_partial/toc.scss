@@ -1,78 +1,131 @@
+/* ==========================================================
+   TOC 目录 - 左侧版 (Cactus 深色适配)
+   ========================================================== */
 #toc {
   position: fixed;
-  right: 2rem;
-  top: 8rem; 
+  left: 2rem; /* 改为左侧定位 */
+  top: 8rem;
   z-index: 99;
   
   display: inline-block;
-  width: 18rem; 
+  width: 18rem;
   max-height: 85vh;
-  overflow-y: auto; 
+  overflow-y: auto;
   
-  text-align: right;
+  text-align: left; /* 文字改为左对齐 */
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.6;
   
+  /* 隐藏滚动条 */
   scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
+}
+#toc::-webkit-scrollbar {
+  display: none;
+}
 
-  ol {
-    list-style: none !important; /* 强制去掉数字 */
-    margin: 0;
-    padding: 0; /* 去掉默认的左内边距 */
-  }
+/* 基础列表重置 */
+#toc ol {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
 
-  a.toc-link {
-    display: block; 
-    color: #999;    
-    text-decoration: none;
-    transition: all 0.2s;
-    padding: 2px 0; 
-    
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-  }
-
-  a.toc-link:hover {
-    color: #42b983; /* Apollo 蓝 */
-  }
-
-  .toc-level-1 { display: none; }
+/* 链接通用样式 */
+#toc a.toc-link {
+  display: block;
+  color: #888; /* 默认灰色 */
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  padding: 3px 0;
   
-  .toc-level-2 {
-    margin-top: 8px; 
-    
-    > a.toc-link {
-      color: #555; 
-      font-weight: bold;
-    }
-
-    > a.toc-link:before {
-      content: "# ";
-      color: #42b983;
-      font-weight: normal;
-      margin-right: 4px;
-    }
-  }
-
-  .toc-level-3 {
-    padding-right: 10px; 
-    font-size: 12px;
-  }
-
-  .toc-level-4, .toc-level-5, .toc-level-6 { display: none; }
-
-  .toc-number { display: none; }
-
-  .toc-item.active > a.toc-link {
-    color: #2da0f9;
-    border-right: 3px solid #2da0f9; 
-    padding-right: 8px; 
-    margin-right: -2rem; 
-  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 1300px) {
-  #toc { display: none; }
+/* 鼠标悬停高亮 */
+#toc a.toc-link:hover {
+  color: #2bbc8a;
 }
+
+#toc .toc-number {
+  display: none;
+}
+
+/* -------------------
+   层级样式控制 (左侧缩进)
+   ------------------- */
+
+/* Level 1 (H1) */
+#toc .toc-level-1 {
+  display: none;
+}
+
+/* Level 2 (H2) - 主标题 */
+#toc .toc-level-2 {
+  margin-top: 10px;
+}
+#toc .toc-level-2 > a.toc-link {
+  color: #dddddd; /* 亮白 */
+  font-weight: bold;
+  font-size: 14px;
+}
+/* H2 前缀 # */
+#toc .toc-level-2 > a.toc-link:before {
+  content: "# ";
+  color: #2bbc8a;
+  font-weight: normal;
+  margin-right: 5px;
+}
+
+/* Level 3 (H3) - 子标题 */
+#toc .toc-level-3 {
+  padding-left: 15px; /* 改为左侧缩进 1阶 */
+  font-size: 13px;
+}
+#toc .toc-level-3 > a.toc-link {
+  color: #aaaaaa;
+}
+/* H3 前缀 # */
+#toc .toc-level-3 > a.toc-link:before {
+  content: "# ";
+  color: #2bbc8a;
+  opacity: 0.6;
+  font-weight: normal;
+  margin-right: 4px;
+  font-size: 0.9em;
+}
+
+/* Level 4 (H4) - 孙标题 */
+#toc .toc-level-4 {
+  display: block;
+  padding-left: 30px; /* 改为左侧缩进 2阶 */
+  font-size: 12px;
+}
+#toc .toc-level-4 > a.toc-link {
+  color: #777777;
+}
+
+/* Level 5 & 6 */
+#toc .toc-level-5, 
+#toc .toc-level-6 {
+  display: none;
+}
+
+/* -------------------
+   激活状态 (Active) - 左边框
+   ------------------- */
+#toc .toc-item.active > a.toc-link {
+  color: #2bbc8a !important;
+  
+  /* 边框移到左边 */
+  border-left: 3px solid #2bbc8a; 
+  
+  /* 调整内边距和外边距，让高亮条贴在屏幕最左边缘 */
+  padding-left: 10px; 
+  margin-left: -2rem; 
+  
+  /* 背景渐变方向改为从左到右 */
+  background: linear-gradient(to right, rgba(43, 188, 138, 0.1), transparent);
+}
+
