@@ -1,3 +1,7 @@
+🌑 Apollo Dark: 本主题 Fork 自 [hexo-theme-apollo](https://github.com/pinggod/hexo-theme-apollo)，并重制为深色模式。
+
+---
+
 ![hexo-theme-apollodark](./doc/demo.png)
 
 ## 文档
