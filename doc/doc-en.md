@@ -1,4 +1,4 @@
-![hexo-theme-apollo](https://cloud.githubusercontent.com/assets/9530963/13026956/08e76eca-d277-11e5-8bfc-2e80cea20a0d.png)
+![hexo-theme-apollodark](./demo.png)
 
 ## Install
 
@@ -7,15 +7,15 @@ hexo init Blog
 cd Blog 
 npm install
 npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive
-git clone https://github.com/pinggod/hexo-theme-apollo.git themes/apollo
+git clone https://github.com/ssfortynine/hexo-theme-apollodark.git themes/apollodark
 ```
 
 ## Enable
 
-Go to `_config.yml` and change the `theme` property to `apollo` value:
+Go to `_config.yml` and change the `theme` property to `apollodark` value:
 
 ```yaml
-theme: apollo
+theme: apollodark
 
 # Show all posts in archive page using hexo-generator-archive
 archive_generator:
@@ -28,7 +28,7 @@ archive_generator:
 ## Update
 
 ``` bash
-cd themes/apollo 
+cd themes/apollodark
 git pull
 ```
 
