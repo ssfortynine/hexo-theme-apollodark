@@ -1,7 +1,7 @@
 menu:
     Blog: /
     Archive: /archives/
-    Weibo: /
+    Tags: /tags
     GitHub: https://github.com/ssfortynine
     Rss: /atom.xml
 

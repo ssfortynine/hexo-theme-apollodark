@@ -1,0 +1,22 @@
+extends partial/layout
+
+block container
+    .archive
+        h2.archive-year= __('Tags')
+        
+        .tag-cloud-container(style="margin: 10px 0 30px 0; line-height: 2;")
+            != tagcloud({min_font: 14, max_font: 20, amount: 100, color: true, start_color: '#7f8c8d', end_color: '#42b983'})
+        
+        ul.post-list
+            each tag in site.tags.sort('name').toArray()
+                li.post-item
+                    .post-info= tag.length + (tag.length > 1 ? ' posts' : ' post')
+                    a.post-title-link(href=url_for(tag.path))
+                        span= tag.name
+
+block pagination
+    include mixins/paginator
+    +home()
+
+block copyright
+    include partial/copyright

@@ -1,27 +1,33 @@
 .archive {
-    max-width: 500px;
-    margin: 5em auto;
+    max-width: 700px;
+    margin: 4em auto;
+
     .post-item {
-        display: inline-block;
-        padding: 2px 0 0 50px;
-    }
-    .post-time,
-    .post-title-link {
-        font-size: 1rem;
-    }
-    .post-title-link {
-        display: block;
-        margin-left: 125px;
-        color: #42b983;
-        word-break: break-all;
-        &:hover {
-            border-bottom: 0;
-            color: #267B54;
+        display: flex;
+        align-items: baseline; 
+        padding: 6px 0;        
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+
+        .post-date {
+            width: 120px;      
+            min-width: 120px;
+            color: #7f8c8d;
+            font-size: 13px;   
+            flex-shrink: 0;
         }
-    }
-    .post-info {
-        float: left;
-        width: 125px;
-        color: #7f8c8d;
+
+        .post-title-link {
+            font-size: 13px;  
+            color: #42b983;
+            text-decoration: none;
+            word-break: break-word;
+            margin-left: 20px; 
+            line-height: 1.4;
+
+            &:hover {
+                color: #2bbc8a;
+                border-bottom: 1px solid #42b983;
+            }
+        }
     }
 }

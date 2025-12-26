@@ -1,11 +1,23 @@
+mixin tagSimple(item)
+    if item.tags && item.tags.length > 0
+        .post-tags-sub
+            each tag in item.tags.toArray()
+                a.tag-simple(href=url_for(tag.path))= '#' + tag.name
+
 mixin postInfo(item)
     .post-info
         != full_date(item.date, 'll')
         if item.from && (is_home() || is_post())
             a.post-from(href=item.from target="_blank" title=item.from)!= __('translated')
+        if item.tags && item.tags.length > 0
+            span.post-tags
+                each tag in item.tags.toArray()
+                    a.tag-pill(href=url_for(tag.path))
+                        span.hash #
+                        span.tag-name= tag.name
 
 
-//- Index Page
+//- Index Page 
 mixin posts()
     ul.home.post-list
         - page.posts.each(function (item) {
@@ -20,7 +32,7 @@ mixin posts()
                     a.read-more(href= url_for(item.path))!= __('more')
         - })
 
-//- Archive Page
+//- Archive Page 
 mixin postList()
     .archive
         - var year = 0;
@@ -32,12 +44,12 @@ mixin postList()
             if change 
                 h2.archive-year!= year
             .post-item
-                +postInfo(item)
+                .post-info
+                    != full_date(item.date, 'MMM D, YYYY')
                 a.post-title-link(href= url_for(item.path))
                     != item.title
         - })
 
-//- Post Page
 mixin post(item)
     .post
         article.post-block
@@ -46,3 +58,23 @@ mixin post(item)
             +postInfo(item)
             .post-content
                 != item.content
+            
+            if item.tags && item.tags.length > 0
+                .post-footer-tags
+                    each tag in item.tags.toArray()
+                        a.tag-pill(href=url_for(tag.path))
+                            span.hash #
+                            span.tag-name= tag.name
+
+mixin tagPage()
+    .tags-container
+        h2.archive-year= __('Tags')
+        .tag-cloud-container
+            != tagcloud({min_font: 13, max_font: 13, amount: 100, color: false})
+        ul.post-list
+            each tag in site.tags.sort('name').toArray()
+                li.post-item
+                    .post-time-block
+                        span.tag-count-info= tag.length + ' posts'
+                    a.post-title-link(href=url_for(tag.path))
+                        span= tag.name
